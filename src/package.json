@@ -1,0 +1,45 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "description": "'Playground'",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "moment": "^2.22.2",
+    "pg": "^7.6.1",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-watch": "^2.0.7",
+    "eslint": "^5.9.0",
+    "make-runnable": "^1.3.6"
+  },
+  "scripts": {
+    "start": "npm start",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "debug": "babel-watch -I app.js",
+    "lint": "eslint",
+    "build": "babel app.js --out-dir build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZaiusDR/nodejs_poc.git"
+  },
+  "keywords": [
+    "POC",
+    "testing",
+    "hacking"
+  ],
+  "author": "ZaiusDr",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZaiusDR/nodejs_poc/issues"
+  },
+  "homepage": "https://github.com/ZaiusDR/nodejs_poc#readme"
+}

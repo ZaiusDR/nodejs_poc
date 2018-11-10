@@ -1,34 +1,23 @@
-const http = require('http');
-const url = require('url');
-const fs = require('fs');
-const mydate = require('./lib/datetime')
+const express = require('express');
+const film = require('./controllers/Film');
+const app = express();
 
 const hostname = '0.0.0.0';
 const port = 3000;
 
-const html_files = './html';
-const content_type = {'Content-Type': 'text/html'};
+app.use(express.json());
 
-const server = http.createServer(function(req, res) {
-  var q = url.parse(req.url, true);
-  var filename;
-  if (q.pathname == "/") {
-    filename = html_files + "/index.html"
-  } else {
-    filename = html_files + q.pathname;
-  }
-  fs.readFile(filename, function(err, data) {
-    if (err) {
-      res.writeHead(404, content_type);
-      return res.end("404 Not Found");
-    }
-    res.writeHead(200, content_type);
-    res.write(data);
-    res.write(`Super useful date line: ${mydate.myDateTime()}`)
-    res.end();
-  });
+app.get('/', (req, res) => {
+  res.status(200).send({'message': 'Catapumchinchin!'})
 });
 
-server.listen(port, hostname, () => {
+
+app.post('/api/v1/films', film.Film.create);
+app.get('/api/v1/films', film.Film.getAll);
+app.get('/api/v1/films/:id', film.Film.getOne);
+app.put('/api/v1/films/:id', film.Film.update);
+app.delete('/api/v1/films/:id', film.Film.delete);
+
+app.listen(port, hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`)
 });
