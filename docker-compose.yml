@@ -1,0 +1,26 @@
+version: '3.1'
+
+services:
+
+  node_js:
+    build: ./docker/node_js
+    image: node_js
+    container_name: node_js
+    hostname: node_js
+    ports:
+      - 3000:3000
+      - 9229:9229
+    volumes:
+      - "./src:/src"
+    depends_on:
+      - postgres
+    links:
+      - postgres:postgres
+
+  postgres:
+    image: postgres
+    restart: always
+    container_name: postgres
+    hostname: postgres
+    environment:
+      POSTGRES_PASSWORD: unsafe_pass
