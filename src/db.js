@@ -13,11 +13,11 @@ pool.on('connect', () => {
 });
 
 
-const createTables = () => {
+const createFilmTable = () => {
   const queryText =
     `CREATE TABLE IF NOT EXISTS
       films(
-        id UUID PRIMARY KEY,
+        id SERIAL PRIMARY KEY,
         title VARCHAR(128) NOT NULL,
         director VARCHAR(128) NOT NULL,
         genre VARCHAR(128) NOT NULL,
@@ -36,7 +36,7 @@ const createTables = () => {
     });
 }
 
-const dropTables = () => {
+const dropFilmTable = () => {
   const queryText = 'DROP TABLE IF EXISTS films';
   pool.query(queryText)
     .then((res) => {
@@ -55,8 +55,8 @@ pool.on('remove', () => {
 });
 
 module.exports = {
-  createTables,
-  dropTables
+  createFilmTable,
+  dropFilmTable
 };
 
 require('make-runnable');

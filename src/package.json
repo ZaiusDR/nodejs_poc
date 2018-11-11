@@ -7,25 +7,21 @@
     "lib": "lib"
   },
   "dependencies": {
+    "bluebird": "^3.5.3",
     "express": "^4.16.4",
     "moment": "^2.22.2",
     "pg": "^7.6.1",
+    "pg-promise": "^8.5.2",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
-    "babel-watch": "^2.0.7",
     "eslint": "^5.9.0",
     "make-runnable": "^1.3.6"
   },
   "scripts": {
     "start": "npm start",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "debug": "babel-watch -I app.js",
-    "lint": "eslint",
-    "build": "babel app.js --out-dir build"
+    "lint": "eslint"
   },
   "repository": {
     "type": "git",
